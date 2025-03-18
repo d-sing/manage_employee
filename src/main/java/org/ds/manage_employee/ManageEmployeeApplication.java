@@ -41,8 +41,8 @@ public class ManageEmployeeApplication {
                 double salary = Double.parseDouble(data[3].trim());
                 Integer managerId= null;
                 if(data.length>4) {
-                    managerId = data[4].trim().isBlank() ? null : Integer.parseInt(data[4].trim());
-                }
+                    managerId = Integer.parseInt(data[4].trim());
+               }
 
                 Employee employee = new Employee(id, firstName, lastName, salary, managerId);
                 employees.put(id, employee);
