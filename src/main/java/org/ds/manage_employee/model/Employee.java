@@ -1,23 +1,36 @@
 package org.ds.manage_employee.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Scope;
 
 @Getter
 @Setter
+@Entity
+@NoArgsConstructor
+@Table(name="employee")
 public class Employee {
 
-    int employeeId;
-    String firstName;
-    String lastName;
-    double salary;
-    Integer managerId;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-    public Employee(int employeeId, String firstName, String lastName, double salary, Integer managerId) {
-        this.employeeId = employeeId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.salary = salary;
-        this.managerId = managerId;
-    }
+    @Column(name="employeeId")
+    int employeeId;
+
+    @Column(name="firstName")
+    String firstName;
+
+    @Column(name="lastName")
+    String lastName;
+
+    @Column(name="salary")
+    double salary;
+
+    @Column(name="employeeType")
+    String employeeType;
+
 }
